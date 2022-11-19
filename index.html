@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://kit.fontawesome.com/69f107dd8c.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body{
+			background-color: blueviolet;
+		}
+		.to{
+			margin-top: 5%;
+			text-align: center;
+		}
+		.list-type{
+			list-style: none;
+		}
+		.listitems{
+			background-color: violet;
+			font-style: cursive;
+			font-size: 2rem;
+			border: 2px solid black;
+			border-radius: 25px;
+		}
+		.listitems:click{
+			margin-left: 2%;
+			margin-right: 2%;
+		}
+		#NewTodo{
+			padding: 1% 2% 1% 2%;
+			font-size: 10px;
+			text-align: center;
+			border-radius: 25px;
+		}
+		.but{
+			font-size: 25px;
+			color: black;
+		}
+		.but:hover{
+			background-color: black;
+			color: white;
+		}
+	</style>
+	<script type="text/javascript">
+		function show(){
+			var NewTodo=document.getElementById("NewTodo").value
+			//console.log(NewTodo)
+			document.getElementById("NewTodo").value=""
+			if(NewTodo===""){
+				alert("Enter a todo")
+			}
+			addTodo(NewTodo)
+		}
+		function addTodo(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li")
+			console.log(li)
+			li.innerHTML=`
+			<span class="listitems">${newValue}</span>
+			<i class="fa-solid fa-rectangle-xmark"></i>
+			`
+			li.classList.add("list-type")
+			ul.appendChild(li)
+		}
+	</script>
+</head>
+<body>
+	<div class="to">
+	<input type="text" value="" placeholder="enter Todo" id="NewTodo">
+	<ul>
+	</ul>
+	<button class="but" onclick="show()">submit</button>
+	</div>
+</body>
+</html>
